@@ -286,7 +286,7 @@ def stream_without_data(response, history_metadata={}):
 
 def conversation_without_data(request_body):
     openai.api_type = "azure"
-    openai.api_base = "https://oai.hconeai.com""
+    openai.api_base = "https://oai.hconeai.com"
     openai.api_version = "2023-03-15-preview"
     openai.api_key = AZURE_OPENAI_KEY
 
