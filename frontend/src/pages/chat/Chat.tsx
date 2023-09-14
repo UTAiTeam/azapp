@@ -9,6 +9,7 @@ import uuid from 'react-uuid';
 
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
+import UTA from "../../assets/UTA_Foundation.svg";
 
 import {
     ChatMessage,
@@ -88,7 +89,7 @@ const Chat = () => {
     const getUserInfoList = async () => {
         const userInfoList = await getUserInfo();
         if (userInfoList.length === 0 && window.location.hostname !== "127.0.0.1") {
-            setShowAuthMessage(true);
+            setShowAuthMessage(false);
         }
         else {
             setShowAuthMessage(false);
@@ -540,12 +541,11 @@ const Chat = () => {
                         {!messages || messages.length < 1 ? (
                             <Stack className={styles.chatEmptyState}>
                                 <img
-                                    src={Azure}
+                                    src={UTA}
                                     className={styles.chatIcon}
                                     aria-hidden="true"
                                 />
-                                <h1 className={styles.chatEmptyStateTitle}>Start chatting</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>This chatbot is configured to answer your questions</h2>
+                                <h1 className={styles.chatEmptyPromp}>Let's Begin</h1>
                             </Stack>
                         ) : (
                             <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? "40px" : "0px"}} role="log">
