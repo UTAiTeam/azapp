@@ -246,7 +246,7 @@ def stream_with_data(body, headers, endpoint, history_metadata={}):
 
 def conversation_with_data(request_body):
     body, headers = prepare_body_headers_with_data(request)
-    base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
+    base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else "https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
     endpoint = f"{base_url}openai/deployments/{AZURE_OPENAI_MODEL}/extensions/chat/completions?api-version={AZURE_OPENAI_PREVIEW_API_VERSION}"
     history_metadata = request_body.get("history_metadata", {})
 
@@ -286,7 +286,7 @@ def stream_without_data(response, history_metadata={}):
 
 def conversation_without_data(request_body):
     openai.api_type = "azure"
-    openai.api_base = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/
+    openai.api_base = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else "https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
     openai.api_version = "2023-03-15-preview"
     openai.api_key = AZURE_OPENAI_KEY
 
@@ -597,7 +597,7 @@ def generate_title(conversation_messages):
 
     try:
         ## Submit prompt to Chat Completions for response
-        base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
+        base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else "https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
         openai.api_type = "azure"
         openai.api_base = base_url
         openai.api_version = "2023-03-15-preview"

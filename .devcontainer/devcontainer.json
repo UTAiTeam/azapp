@@ -12,10 +12,11 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-azuretools.azure-dev",
-                "ms-azuretools.vscode-bicep",
-                "ms-python.python"
-            ]
+				"ms-azuretools.azure-dev",
+				"ms-azuretools.vscode-bicep",
+				"ms-python.python",
+				"GitHub.copilot"
+			]
         },
         "codespaces": {
             "openFiles": [
