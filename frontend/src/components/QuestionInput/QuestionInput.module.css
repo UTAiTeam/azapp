@@ -8,32 +8,48 @@
     background: #1A1A1A;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 22px;
+
 }
 
 .questionInputTextArea {
-    width: 100%;
-    line-height: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 12px;
-    margin-right: 12px;
+    width:95%;
+    height: 38px;
+    line-height: 38px;
+    background-color: #1A1A1A;
+    border: 1px solid #DBD8C7;
+    border-radius: 10px;
+    overflow: hidden;
+    input {
+        color: #DBD8C7;
+        background: #1A1A1A;
+       
+    }
+
+    input::placeholder {
+        color: #DBD8C7;
+      }
 }
 
 .questionInputSendButtonContainer {
-    position: absolute;
+    /* position: absolute;
     right: 24px;
-    bottom: 20px;
+    bottom: 20px; */
+    margin-left: 15px;
+    cursor: pointer;
 }
 
 .questionInputSendButton {
-    width: 24px;
-    height: 23px;
+    width: 38px;
+    height: 38px;
 }
 
 .questionInputSendButtonDisabled {
     /* opacity: 0.4; */
-    width: 24px;
-    height: 23px;
+    width: 38px;
+    height: 38px;
     background: none;
     color: #424242;
 }
@@ -53,4 +69,19 @@
     cursor: pointer;
     width: 27px;
     height: 30px;
+}
+
+.poweredBy{
+    color: #DBD8C7;
+    font-family: 'AktiveGrotesk-Light';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    span {
+        font-family: 'AktiveGrotesk-Bold';
+        font-weight: 700;
+    }
+    margin-top: 8px;
+    margin-left: 5px;
 }

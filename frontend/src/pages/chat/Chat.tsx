@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext, useLayoutEffect } from "react";
-import { CommandBarButton, IconButton, Dialog, DialogType, Stack } from "@fluentui/react";
+import { CommandBarButton, IconButton, Dialog, DialogType, Stack, Persona, PersonaSize } from "@fluentui/react";
 import { DismissRegular, SquareRegular, ShieldLockRegular, ErrorCircleRegular } from "@fluentui/react-icons";
 
 import ReactMarkdown from "react-markdown";
@@ -10,6 +10,7 @@ import uuid from 'react-uuid';
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import UTA from "../../assets/UTA_Foundation.svg";
+import Person from "../../assets/Person.svg";
 
 import {
     ChatMessage,
@@ -553,6 +554,12 @@ const Chat = () => {
                                     <>
                                         {answer.role === "user" ? (
                                             <div className={styles.chatMessageUser} tabIndex={0}>
+                                                <div><img
+                                    src={Person}
+                                    className={styles.chatMessageIcon}
+                                    aria-hidden="true"
+                                />
+                                                </div>
                                                 <div className={styles.chatMessageUserMessage}>{answer.content}</div>
                                             </div>
                                         ) : (
@@ -627,7 +634,7 @@ const Chat = () => {
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
                                 />}
-                                <CommandBarButton
+                                {/* <CommandBarButton
                                     role="button"
                                     styles={{ 
                                         icon: { 
@@ -644,7 +651,7 @@ const Chat = () => {
                                     onClick={clearChat}
                                     disabled={disabledButton()}
                                     aria-label="clear chat button"
-                                />
+                                /> */}
                                 <Dialog
                                     hidden={hideErrorDialog}
                                     onDismiss={handleErrorDialogClose}
