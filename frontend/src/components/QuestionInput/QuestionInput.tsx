@@ -45,31 +45,29 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, conv
     const sendQuestionDisabled = disabled || !question.trim();
 
     return (
-        <Stack horizontal className={styles.questionInputContainer}>
-            <TextField
-                className={styles.questionInputTextArea}
-                placeholder={placeholder}
-                multiline
-                resizable={false}
-                borderless
-                value={question}
-                onChange={onQuestionChange}
-                onKeyDown={onEnterPress}
-            />
-            <div className={styles.questionInputSendButtonContainer} 
-                role="button" 
-                tabIndex={0}
-                aria-label="Ask question button"
-                onClick={sendQuestion}
-                onKeyDown={e => e.key === "Enter" || e.key === " " ? sendQuestion() : null}
-            >
-                { sendQuestionDisabled ? 
-                    <SendRegular className={styles.questionInputSendButtonDisabled}/>
-                    :
+        <Stack className={styles.questionInputContainer}>
+            <Stack horizontal >
+                <TextField
+                    className={styles.questionInputTextArea}
+                    placeholder={placeholder}
+                    resizable={false}
+                    borderless
+                    value={question}
+                    onChange={onQuestionChange}
+                    onKeyDown={onEnterPress}
+                />
+                <div className={styles.questionInputSendButtonContainer} 
+                    role="button" 
+                    tabIndex={0}
+                    aria-label="Ask question button"
+                    onClick={sendQuestion}
+                    onKeyDown={e => e.key === "Enter" || e.key === " " ? sendQuestion() : null}
+                >
                     <img src={Send} className={styles.questionInputSendButton}/>
-                }
-            </div>
-            <div className={styles.questionInputBottomBorder} />
+                </div>
+            </Stack>
+            
+            <p className={styles.poweredBy}>Powered by <span>UTA</span> Tech</p>
         </Stack>
     );
 };

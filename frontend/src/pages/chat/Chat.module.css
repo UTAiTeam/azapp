@@ -9,9 +9,9 @@
     flex: 1;
     display: flex;
     margin-top: 0px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px;
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 20px; */
     gap: 5px;
 }
 
@@ -24,7 +24,7 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
     overflow-y: auto;
-    max-height: calc(100vh - 100px);
+    /* max-height: calc(100vh - 100px); */
 }
 
 .chatEmptyState {
@@ -63,7 +63,7 @@
 .chatEmptyPromp{
     color: #DBD8C7;
     text-align: center;
-    font-family: Aktiv Grotesk;
+    font-family: 'AktiveGrotesk-Hair';
     font-size: 128px;
     font-style: normal;
     font-weight: 250;
@@ -73,14 +73,27 @@
 }
 .chatIcon {
     width: 360px;
-height: 379px;
-flex-shrink: 0;
+    height: 379px;
+    flex-shrink: 0;
+}
+
+@media only screen and (max-width: 740px) {
+    .chatEmptyPromp{
+
+        font-size: 70px;
+
+    }
+    .chatIcon {
+        width: 225px;
+        height: 379px;
+        flex-shrink: 0;
+    }
 }
 
 .chatMessageStream {
     flex-grow: 1;
     max-width: 1028px;
-    width: 100%;
+    width: 75%;
     overflow-y: auto;
     padding-left: 24px;
     padding-right: 24px;
@@ -91,20 +104,29 @@ flex-shrink: 0;
 
 .chatMessageUser {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-bottom: 12px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DBD8C7
+}
+
+.chatMessageIcon{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
 }
 
 .chatMessageUserMessage {
     padding: 20px;
-    background: #EDF5FD;
+    /* background: #EDF5FD; */
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 22px;
-    color: #242424;
+    color: #DBD8C7;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -125,7 +147,7 @@ flex-shrink: 0;
     border-radius: 8px;
     box-shadow: rgba(182, 52, 67, 1) 1px 1px 2px, rgba(182, 52, 67, 1) 0px 0px 1px;
     
-    color: #242424;
+    color: #EDF5FD;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -155,7 +177,7 @@ flex-shrink: 0;
     padding-right: 24px;
     width: calc(100% - 100px);
     max-width: 1028px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     margin-top: 8px;
 }
 
