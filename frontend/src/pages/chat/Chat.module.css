@@ -73,8 +73,21 @@
 }
 .chatIcon {
     width: 360px;
-height: 379px;
-flex-shrink: 0;
+    height: 379px;
+    flex-shrink: 0;
+}
+
+@media only screen and (max-width: 740px) {
+    .chatEmptyPromp{
+
+        font-size: 70px;
+
+    }
+    .chatIcon {
+        width: 225px;
+        height: 379px;
+        flex-shrink: 0;
+    }
 }
 
 .chatMessageStream {
@@ -130,11 +143,11 @@ flex-shrink: 0;
 
 .chatMessageError {
     padding: 20px;
-    background: #EDF5FD;
+    /* background: #EDF5FD; */
     border-radius: 8px;
     box-shadow: rgba(182, 52, 67, 1) 1px 1px 2px, rgba(182, 52, 67, 1) 0px 0px 1px;
     
-    color: #242424;
+    color: #EDF5FD;
     flex: none;
     order: 0;
     flex-grow: 0;
