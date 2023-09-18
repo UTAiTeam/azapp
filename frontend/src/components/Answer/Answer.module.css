@@ -4,7 +4,7 @@
     align-items: flex-start;
     padding: 8.1285px;
     gap: 5.42px;
-    background: #FFFFFF;
+    /* background: #FFFFFF; */
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     border-radius: 5.419px;
 }
@@ -12,9 +12,9 @@
 .answerText {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
-    color: #323130;
+    color: #DBD8C7;
     flex: none;
     order: 1;
     align-self: stretch;
@@ -38,6 +38,7 @@
 .answerDisclaimerContainer {
     justify-content: center;
     display: flex;
+    margin-left: 11px;
 }
 
 .answerDisclaimer {
@@ -45,11 +46,10 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-
     display: flex;
     align-items: center;
     text-align: center;
-    color: #707070;
+    color: rgba(219, 216, 199, 0.50);
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -168,4 +168,19 @@
 sup {
     font-size: 10px;
     line-height: 10px;
+}
+
+.chatMessageIcon{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+
+.answerWrap{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DBD8C7
 }

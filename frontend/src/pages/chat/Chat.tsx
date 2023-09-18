@@ -554,7 +554,8 @@ const Chat = () => {
                                     <>
                                         {answer.role === "user" ? (
                                             <div className={styles.chatMessageUser} tabIndex={0}>
-                                                <div className={styles.chatMessageUser}><img
+                                                <div>
+                                                    <img
                                                         src={Person}
                                                         className={styles.chatMessageIcon}
                                                         aria-hidden="true"
