@@ -134,7 +134,7 @@
 
 .chatMessageGpt {
     margin-bottom: 12px;
-    max-width: 80%;
+    width: 100%;
     display: flex;
 }
 

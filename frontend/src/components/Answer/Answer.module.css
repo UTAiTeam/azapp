@@ -4,7 +4,7 @@
     align-items: flex-start;
     padding: 8.1285px;
     gap: 5.42px;
-    /* background: #FFFFFF; */
+
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     border-radius: 5.419px;
 }
@@ -19,7 +19,7 @@
     order: 1;
     align-self: stretch;
     flex-grow: 0;
-    margin: 11px;
+    margin: 5px 10px;
     white-space: normal;
     word-wrap: break-word;
     max-width: 800px;
@@ -173,14 +173,16 @@ sup {
 .chatMessageIcon{
     width: 38px;
     height: 38px;
-    flex-shrink: 0;
+    margin-top: 10px;
 }
 
 .answerWrap{
     display: flex;
     justify-content: flex-start;
     margin-bottom: 12px;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 10px;
-    border-bottom: 1px solid #DBD8C7
+    border-bottom: 1px solid #DBD8C7;
+    flex-direction: row;
+    width: 100%;
 }
