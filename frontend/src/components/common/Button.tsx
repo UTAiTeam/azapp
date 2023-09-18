@@ -33,9 +33,9 @@ export const ShareButton: React.FC<ShareButtonProps> = ({onClick}) => {
       return (
         <CommandBarButton
                 styles={shareButtonStyles}
-                iconProps={{ iconName: 'Share' }}
+                iconProps={{ iconName: 'Add' }}
                 onClick={onClick}
-                text="Share"
+                // text="Share"
         />
       )
 }

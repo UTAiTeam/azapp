@@ -554,11 +554,11 @@ const Chat = () => {
                                     <>
                                         {answer.role === "user" ? (
                                             <div className={styles.chatMessageUser} tabIndex={0}>
-                                                <div><img
-                                    src={Person}
-                                    className={styles.chatMessageIcon}
-                                    aria-hidden="true"
-                                />
+                                                <div className={styles.chatMessageUser}><img
+                                                        src={Person}
+                                                        className={styles.chatMessageIcon}
+                                                        aria-hidden="true"
+                                                        />
                                                 </div>
                                                 <div className={styles.chatMessageUserMessage}>{answer.content}</div>
                                             </div>
@@ -572,8 +572,9 @@ const Chat = () => {
                                                     onCitationClicked={c => onShowCitation(c)}
                                                 />
                                             </div> : answer.role === "error" ? <div className={styles.chatMessageError}>
+                                            <ErrorCircleRegular className={styles.errorIcon} style={{color: "rgba(182, 52, 67, 1)"}} />
+
                                                 <Stack horizontal className={styles.chatMessageErrorContent}>
-                                                    <ErrorCircleRegular className={styles.errorIcon} style={{color: "rgba(182, 52, 67, 1)"}} />
                                                     <span>Error</span>
                                                 </Stack>
                                                 <span className={styles.chatMessageErrorContent}>{answer.content}</span>
