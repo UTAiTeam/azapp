@@ -3,6 +3,7 @@ import { useBoolean } from "@fluentui/react-hooks"
 import { FontIcon, Stack, Text } from "@fluentui/react";
 
 import styles from "./Answer.module.css";
+import UTA from "../../assets/UTA_Foundation.svg";
 
 import { AskResponse, Citation } from "../../api";
 import { parseAnswer } from "./AnswerParser";
@@ -54,7 +55,14 @@ export const Answer = ({
     }
 
     return (
-        <>
+        <Stack className={styles.answerWrap} tabIndex={0}>
+            <div>
+                <img
+                    src={UTA}
+                    className={styles.chatMessageIcon}
+                    aria-hidden="true"
+                    />
+            </div>
             <Stack className={styles.answerContainer} tabIndex={0}>
                 <Stack.Item grow>
                     <ReactMarkdown
@@ -88,9 +96,9 @@ export const Answer = ({
                         </Stack>
                     </Stack.Item>
                 )}
-                <Stack.Item className={styles.answerDisclaimerContainer}>
-                    <span className={styles.answerDisclaimer}>AI-generated content may be incorrect</span>
-                </Stack.Item>
+                    <Stack.Item className={styles.answerDisclaimerContainer}>
+                        <span className={styles.answerDisclaimer}>AI-generated content may be incorrect</span>
+                    </Stack.Item>
                 </Stack>
                 {chevronIsExpanded && 
                     <div style={{ marginTop: 8, display: "flex", flexFlow: "wrap column", maxHeight: "150px", gap: "4px" }}>
@@ -113,6 +121,6 @@ export const Answer = ({
                     </div>
                 }
             </Stack>
-        </>
+        </Stack>
     );
 };
