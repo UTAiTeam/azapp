@@ -12,7 +12,7 @@
     /* margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px; */
-    gap: 5px;
+    /* gap: 5px; */
 }
 
 .chatContainer {
@@ -24,6 +24,7 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     overflow-y: auto;
     /* max-height: calc(100vh - 100px); */
+    position: relative;
 }
 
 .chatEmptyState {
@@ -97,6 +98,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 24px;
+    max-height: calc(100vh - 140px);
 }
 
 .chatMessageUser {
@@ -136,6 +138,7 @@
     margin-bottom: 12px;
     width: 100%;
     display: flex;
+    line-height: 25px;
 }
 
 .chatMessageError {
@@ -247,21 +250,22 @@
 }
 
 .stopGeneratingIcon {
-    width: 14px;
-    height: 14px;
-    color: #424242;
+    width: 10px;
+    height: 10px;
+    color: #DBD8C7;
+    background-color: #DBD8C7;
 }
 
 .stopGeneratingText {
     width: 103px;
     height: 20px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     display: flex;
     align-items: center;
-    color: #242424;
+    color: #DBD8C7;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -294,7 +298,7 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
-    color: #000000;
+    color: #DBD8C7;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -303,7 +307,7 @@
 .citationPanelDismiss {
     width: 18px;
     height: 18px;
-    color: #424242;
+    color: #afafaf;
 }
 
 .citationPanelDismiss:hover {
@@ -336,4 +340,44 @@
 a {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.menuIcon {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 25px;
+    left: 31px;
+    cursor: pointer;
+}
+.rightNav {
+    position: absolute;
+    top: 25px;
+    right: 31px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navIcon {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    
+}
+.navBtn {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 30px;
+
+}
+
+.clearIcon{
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 3px dashed #DBD8C7;
+    margin-left: 2px;
 }

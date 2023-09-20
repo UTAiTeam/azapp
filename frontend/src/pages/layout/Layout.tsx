@@ -68,6 +68,7 @@ const Layout = () => {
 
     return (
         <div className={styles.layout}>
+            {/* Comment out header for now while functionality moved to Chat Page */}
             {/* <header className={styles.header} role={"banner"}>
                 <Stack horizontal verticalAlign="center" horizontalAlign="space-between"
                 // className={styles.headerContainer}

@@ -9,6 +9,7 @@ import ChatHistoryList from "./ChatHistoryList";
 import { ChatHistoryLoadingState, historyDeleteAll } from "../../api";
 
 interface ChatHistoryPanelProps {
+    newChat: () => void;
 
 }
 
@@ -86,12 +87,21 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
 
     return (
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
-            <Stack horizontal horizontalAlign='space-between' verticalAlign='center' wrap aria-label="chat history header">
-                <StackItem>
-                    <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat history</Text>
-                </StackItem>
+            <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
+                <Stack horizontal>
+                    {/* <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat history</Text> */}
+                    <button 
+                        className="bg-off-white text-off-black font-bold py-1 px-3 rounded"
+                        onClick={props.newChat}
+                        >New Chat</button>
+                    <button 
+                        className="bg-transparent hover:bg-blue-700 text-off-white py-2 px-4 rounded"
+                        onClick={toggleClearAllDialog}
+                        >Clear History</button>
+
+                </Stack>
                 <Stack verticalAlign="start">
-                    <Stack horizontal styles={commandBarButtonStyle}>
+                    {/* <Stack horizontal styles={commandBarButtonStyle}>
                         <CommandBarButton
                             iconProps={{ iconName: 'More' }}
                             title={"Clear all chat history"}
@@ -116,7 +126,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                             styles={commandBarStyle}
                             role="button"
                         />
-                    </Stack>
+                    </Stack> */}
                 </Stack>
             </Stack>
             <Stack aria-label="chat history panel content"
@@ -142,14 +152,14 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         <Stack>
                             <Stack horizontalAlign='center' verticalAlign='center' style={{ width: "100%", marginTop: 10 }}>
                                 <StackItem>
-                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16 }}>
+                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16, color: '#DBD8C7'}}>
                                         {appStateContext?.state.isCosmosDBAvailable?.status && <span>{appStateContext?.state.isCosmosDBAvailable?.status}</span>}
                                         {!appStateContext?.state.isCosmosDBAvailable?.status && <span>Error loading chat history</span>}
                                         
                                     </Text>
                                 </StackItem>
                                 <StackItem>
-                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14 }}>
+                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14, color: '#DBD8C7' }}>
                                         <span>Chat history can't be saved at this time</span>
                                     </Text>
                                 </StackItem>
@@ -160,10 +170,10 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         <Stack>
                             <Stack horizontal horizontalAlign='center' verticalAlign='center' style={{ width: "100%", marginTop: 10 }}>
                                 <StackItem style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                    <Spinner style={{ alignSelf: "flex-start", height: "100%", marginRight: "5px" }} size={SpinnerSize.medium} />
+                                    <Spinner style={{ alignSelf: "flex-start", height: "100%", marginRight: "5px", color: '#DBD8C7' }} size={SpinnerSize.medium} />
                                 </StackItem>
                                 <StackItem>
-                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14 }}>
+                                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14, color: '#DBD8C7' }}>
                                         <span style={{ whiteSpace: 'pre-wrap' }}>Loading chat history</span>
                                     </Text>
                                 </StackItem>
