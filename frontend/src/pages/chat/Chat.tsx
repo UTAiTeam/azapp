@@ -6,11 +6,17 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from "rehype-raw";
 import uuid from 'react-uuid';
+import { Tooltip } from 'react-tooltip';
 
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import UTA from "../../assets/UTA_Foundation.svg";
 import Person from "../../assets/Person.svg";
+import UTA_OPTIONS from "../../assets/uta-options.svg";
+import Close from "../../assets/uta-close.svg";
+import Share from "../../assets/share.svg";
+import New_Chat from "../../assets/new-chat.svg";
+import INFO from "../../assets/info.svg";
 
 import {
     ChatMessage,
@@ -426,6 +432,8 @@ const Chat = () => {
         setProcessMessages(messageStatus.Done)
     };
 
+
+
     const stopGenerating = () => {
         abortFuncs.current.forEach(a => a.abort());
         setShowLoadingMessage(false);
@@ -521,6 +529,10 @@ const Chat = () => {
         return isLoading || (messages && messages.length === 0) || clearingChat || appStateContext?.state.chatHistoryLoadingState === ChatHistoryLoadingState.Loading
     }
 
+    const handleHistoryClick = () => {
+        appStateContext?.dispatch({ type: 'TOGGLE_CHAT_HISTORY' })
+    };
+
     return (
         <div className={styles.container} role="main">
             {showAuthMessage ? (
@@ -538,7 +550,17 @@ const Chat = () => {
                 </Stack>
             ) : (
                 <Stack horizontal className={styles.chatRoot}>
+                    {(appStateContext?.state.isChatHistoryOpen && appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && <ChatHistoryPanel newChat={newChat} />}
                     <div className={styles.chatContainer}>
+                        <div className={styles.menuIcon}
+                            onClick={handleHistoryClick}
+                        >
+                            <img
+                                    src={appStateContext?.state?.isChatHistoryOpen ? Close : UTA_OPTIONS}
+                                    // className={styles.chatIcon}
+                                    aria-hidden="true"
+                                />
+                        </div>
                         {!messages || messages.length < 1 ? (
                             <Stack className={styles.chatEmptyState}>
                                 <img
@@ -616,7 +638,7 @@ const Chat = () => {
                                 </Stack>
                             )}
                             <Stack>
-                                {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured && <CommandBarButton
+                                {/* {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured && <CommandBarButton
                                     role="button"
                                     styles={{ 
                                         icon: { 
@@ -635,7 +657,7 @@ const Chat = () => {
                                     onClick={newChat}
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
-                                />}
+                                />} */}
                                 {/* <CommandBarButton
                                     role="button"
                                     styles={{ 
@@ -692,7 +714,62 @@ const Chat = () => {
                         
                     </Stack.Item>
                 )}
-                {(appStateContext?.state.isChatHistoryOpen && appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && <ChatHistoryPanel/>}
+                {messages && messages.length > 0 && (
+                    <div className={styles.rightNav}>
+                        <button className={styles.navBtn}>
+                            <img
+                                src={New_Chat}
+                                className={styles.navIcon}
+                                aria-hidden="true"
+                                id="new-chat"
+                            />
+                        </button>
+                        <button className={styles.navBtn}>
+                            <img
+                                src={Share}
+                                className={styles.navIcon}
+                                aria-hidden="true"
+                                id="share"
+                            />
+                        </button>
+                        <button className={styles.navBtn}>
+                           <div className={styles.clearIcon} id="clear-chat" ></div>
+                        </button>
+                        <button className={styles.navBtn}>
+                            <img
+                                src={INFO}
+                                className={styles.navIcon}
+                                aria-hidden="true"
+                                id="info"
+                            />
+                        </button>
+                        <Tooltip
+                            key={'left'}
+                            anchorSelect="#new-chat"
+                            content={`Create New Chat`}
+                            place={'left'}
+                        />
+                        <Tooltip
+                            key={'left'}
+                            anchorSelect="#share"
+                            content={`Share`}
+                            place={'left'}
+                        />
+                        <Tooltip
+                            key={'left'}
+                            anchorSelect="#clear-chat"
+                            content={`Create the chat`}
+                            place={'left'}
+                        />
+                        <Tooltip
+                            key={'left'}
+                            anchorSelect="#info"
+                            content={`Info`}
+                            place={'left'}
+                        />
+                    </div>
+                )}
+               
                 </Stack>
             )}
         </div>

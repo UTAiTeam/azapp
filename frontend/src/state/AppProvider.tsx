@@ -26,7 +26,7 @@ export type Action =
     | { type: 'FETCH_CHAT_HISTORY', payload: Conversation[] | null }  // API Call
 
 const initialState: AppState = {
-    isChatHistoryOpen: false,
+    isChatHistoryOpen: true,
     chatHistoryLoadingState: ChatHistoryLoadingState.Loading,
     chatHistory: null,
     filteredChatHistory: null,

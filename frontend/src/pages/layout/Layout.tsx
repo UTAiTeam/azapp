@@ -68,7 +68,8 @@ const Layout = () => {
 
     return (
         <div className={styles.layout}>
-            <header className={styles.header} role={"banner"}>
+            {/* Comment out header for now while functionality moved to Chat Page */}
+            {/* <header className={styles.header} role={"banner"}>
                 <Stack horizontal verticalAlign="center" horizontalAlign="space-between"
                 // className={styles.headerContainer}
                 >
@@ -77,6 +78,7 @@ const Layout = () => {
                             src={UTA_OPTIONS}
                             className={styles.headerIcon}
                             aria-hidden="true"
+                            onClick={handleHistoryClick}
                         />
                         <Link to="/" className={styles.headerTitleContainer}>
                             <h1 className={styles.headerTitle}>Azure AI</h1>
@@ -90,7 +92,7 @@ const Layout = () => {
                     </Stack>
 
                 </Stack>
-            </header>
+            </header> */}
             <Outlet />
             <Dialog 
                 onDismiss={handleSharePanelDismiss}
