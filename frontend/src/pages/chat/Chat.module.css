@@ -64,17 +64,29 @@
     color: #DBD8C7;
     text-align: center;
     font-family: 'AktiveGrotesk-Hair';
-    font-size: 128px;
+    font-size: 64px;
     font-style: normal;
     font-weight: 250;
-    line-height: 24px; /* 18.75% */
+    line-height: normal;
     z-index: 100;
-    margin-top: -200px;
+
 }
 .chatIcon {
-    width: 360px;
-    height: 379px;
+    width: 93px;
+    height: 98px;
     flex-shrink: 0;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite alternate;
+
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
 }
 
 @media only screen and (max-width: 740px) {
@@ -380,4 +392,28 @@ a {
     border-radius: 3px;
     border: 3px dashed #DBD8C7;
     margin-left: 2px;
+}
+
+.prompts{
+    display: flex;
+    flex-direction: column;
+    width: 770px;
+    flex-wrap: wrap;
+    height: 200px;
+    position: absolute;
+    bottom: 100px;
+}
+.prompt{
+    display: flex;
+    width: 374px;
+    padding: 15px 20px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #333;
+    margin-bottom: 20px;
+    color: #DBD8C7;
+    font-size: 14px;
 }

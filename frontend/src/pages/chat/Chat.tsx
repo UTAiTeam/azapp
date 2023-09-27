@@ -569,6 +569,19 @@ const Chat = () => {
                                     aria-hidden="true"
                                 />
                                 <h1 className={styles.chatEmptyPromp}>Let's Begin</h1>
+
+
+                                <div className={styles.prompts}>
+                                    <div className={styles.prompt}>“How can I improve my client’s social media engagement?”</div>
+                                    <div className={styles.prompt}>“Generate tweet ideas to promote a new TV series.”</div>
+                                    <div className={styles.prompt}>“Generate a logline for a romantic comedy set in a small town.”</div>
+                                    <div className={styles.prompt}>“What are some ways to manage stress during high-stakes deals?”</div>
+                                    
+                                </div>
+
+
+
+
                             </Stack>
                         ) : (
                             <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? "40px" : "0px"}} role="log">
@@ -716,7 +729,9 @@ const Chat = () => {
                 )}
                 {messages && messages.length > 0 && (
                     <div className={styles.rightNav}>
-                        <button className={styles.navBtn}>
+                        <button className={styles.navBtn}
+                        onClick={newChat}
+                        >
                             <img
                                 src={New_Chat}
                                 className={styles.navIcon}

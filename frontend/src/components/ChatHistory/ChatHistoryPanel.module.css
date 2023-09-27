@@ -24,7 +24,7 @@
 }
 
 .itemCell:hover {
-    background: #E6E6E6;
+    background: #232323;
 }
 
 .itemButton {
@@ -35,13 +35,13 @@
     height: 28px;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
-    background-color: white;
+    background-color: #1A1A1A;
     margin: auto 2.5px;
     cursor: pointer;
 }
 
 .itemButton:hover {
-    background-color: #E6E6E6;
+    background-color: #232323;
 }
 
 .chatGroup {
