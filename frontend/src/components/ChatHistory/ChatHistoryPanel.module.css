@@ -16,21 +16,6 @@
     cursor: pointer;
     padding-left: 15px;
     padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    display: flex;
-}
-
-.itemCell {
-    max-width: 270px;
-    min-height: 32px;
-    cursor: pointer;
-    padding-left: 15px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     box-sizing: border-box;
     border-radius: 5px;
     display: flex;
@@ -71,15 +56,17 @@
     font-family: 'AktiveGrotesk-Bold';
     color: rgba(219, 216, 199, 0.50);
     text-overflow: ellipsis;
-    margin-bottom: 5px;
+    margin-top: 20px;
     padding-left: 15px;
-    height: 45px;
 }
 
 .chatTitle {
-    width: 80%;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     border-bottom: solid 2px #333;
+}
+.bold{
+    font-family: 'AktiveGrotesk-Bold';
 }

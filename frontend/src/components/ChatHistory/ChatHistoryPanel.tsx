@@ -88,14 +88,14 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     return (
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
-                <Stack horizontal>
+                <Stack horizontal className="mb-3">
                     {/* <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat history</Text> */}
                     <button 
-                        className="bg-off-white text-off-black font-bold py-1 px-3 rounded"
+                        className={`bg-off-white text-off-black font-bold py-1 px-5 rounded-lg ${styles.bold}`}
                         onClick={props.newChat}
                         >New Chat</button>
                     <button 
-                        className="bg-transparent hover:bg-blue-700 text-off-white py-2 px-4 rounded"
+                        className={`bg-transparent hover:bg-blue-700 text-off-white py-2 px-5 rounded-lg ${styles.bold}`}
                         onClick={toggleClearAllDialog}
                         >Clear History</button>
 
