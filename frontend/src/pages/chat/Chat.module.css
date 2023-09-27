@@ -416,4 +416,22 @@ a {
     margin-bottom: 20px;
     color: #DBD8C7;
     font-size: 14px;
+    font-family: 'AktiveGrotesk-Light';
+    line-height: 20px;
+    cursor: pointer;
+    border: 1px solid #333;
+    .sendIcon{
+        display: none;
+        height: 28px;
+        width: 28px;
+    }
 }
+.prompt:hover{
+   border: 1px solid #DBD8C7;
+   .sendIcon{
+        display: block;
+   }
+}
+
+
+
