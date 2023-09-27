@@ -162,21 +162,20 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
     }
 
     return (
-        <Stack
+        <div
             key={item.id}
             tabIndex={0}
             aria-label='chat history item'
             className={styles.itemCell}
             onClick={() => handleSelectItem()}
             onKeyDown={e => e.key === "Enter" || e.key === " " ? handleSelectItem() : null}
-            verticalAlign='center'
+            // verticalAlign='center'
             // horizontal
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            styles={{
-                root: {
-                    backgroundColor: isSelected ? '#e6e6e6' : 'transparent',
-                }
+            style={{
+                 backgroundColor: isSelected ? '#e6e6e6' : 'transparent',
+                 fontFamily: isSelected ? 'AktiveGrotesk-Bold' : 'AktiveGrotesk-Regular'
             }}
         >
             {edit ? <>
@@ -239,7 +238,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
                 <DefaultButton onClick={toggleDeleteDialog} text="Cancel" />
                 </DialogFooter>
             </Dialog>
-        </Stack>
+        </div>
     );
 };
 
