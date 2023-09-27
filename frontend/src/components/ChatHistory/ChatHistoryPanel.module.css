@@ -2,12 +2,25 @@
     width: 300px;
     background-color: #1A1A1A;
     color: #DBD8C7;
-    padding: 25px;
+    padding: 25px 0;
 }
 
 .listContainer {
     overflow: hidden auto;
     max-height: calc(90vh - 105px);
+}
+
+.itemCell {
+    max-width: 270px;
+    min-height: 32px;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
 }
 
 .itemCell {
@@ -54,10 +67,13 @@
 }
 
 .chatMonth {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-family: 'AktiveGrotesk-Bold';
+    color: rgba(219, 216, 199, 0.50);
+    text-overflow: ellipsis;
     margin-bottom: 5px;
     padding-left: 15px;
+    height: 45px;
 }
 
 .chatTitle {
@@ -65,4 +81,5 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    border-bottom: solid 2px #333;
 }

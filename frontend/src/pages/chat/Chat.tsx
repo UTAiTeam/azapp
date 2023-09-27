@@ -17,6 +17,7 @@ import Close from "../../assets/uta-close.svg";
 import Share from "../../assets/share.svg";
 import New_Chat from "../../assets/new-chat.svg";
 import INFO from "../../assets/info.svg";
+import Send from "../../assets/Send.svg";
 
 import {
     ChatMessage,
@@ -572,10 +573,22 @@ const Chat = () => {
 
 
                                 <div className={styles.prompts}>
-                                    <div className={styles.prompt}>“How can I improve my client’s social media engagement?”</div>
-                                    <div className={styles.prompt}>“Generate tweet ideas to promote a new TV series.”</div>
-                                    <div className={styles.prompt}>“Generate a logline for a romantic comedy set in a small town.”</div>
-                                    <div className={styles.prompt}>“What are some ways to manage stress during high-stakes deals?”</div>
+                                    <div className={styles.prompt}>
+                                        <p>“How can I improve my client’s social media engagement?”</p>
+                                        <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
+                                    </div>
+                                    <div className={styles.prompt}>
+                                        <p>“Generate tweet ideas to promote a new TV series.”</p>
+                                        <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
+                                    </div>
+                                    <div className={styles.prompt}>
+                                        <p>“Generate a logline for a romantic comedy set in a small town.”</p>
+                                        <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
+                                    </div>
+                                    <div className={styles.prompt}>
+                                        <p>“What are some ways to manage stress during high-stakes deals?”</p>
+                                        <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
+                                    </div>
                                     
                                 </div>
 
