@@ -14,8 +14,7 @@
     max-width: 270px;
     min-height: 32px;
     cursor: pointer;
-    padding-left: 15px;
-    padding-right: 5px;
+    padding:22px 5px 22px 15px;
     box-sizing: border-box;
     border-radius: 5px;
     display: flex;
@@ -36,10 +35,12 @@
     background-color: #1A1A1A;
     margin: auto 2.5px;
     cursor: pointer;
+    color: #DBD8C7
 }
 
 .itemButton:hover {
     background-color: #232323;
+    color: #DBD8C7
 }
 
 .chatGroup {
@@ -69,4 +70,8 @@
 }
 .bold{
     font-family: 'AktiveGrotesk-Bold';
+}
+.titleField{
+    background-color: #000;
+    color: #FFF;
 }
