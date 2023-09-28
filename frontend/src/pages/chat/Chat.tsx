@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from "rehype-raw";
 import uuid from 'react-uuid';
 import { Tooltip } from 'react-tooltip';
+import { clsx } from 'clsx';
 
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
@@ -61,6 +62,7 @@ const Chat = () => {
     const [clearingChat, setClearingChat] = useState<boolean>(false);
     const [hideErrorDialog, { toggle: toggleErrorDialog }] = useBoolean(true);
     const [errorMsg, setErrorMsg] = useState<ErrorMessage | null>()
+    const [width, setWidth] = useState<number>(window.innerWidth);
 
     const errorDialogContentProps = {
         type: DialogType.close,
@@ -534,6 +536,20 @@ const Chat = () => {
         appStateContext?.dispatch({ type: 'TOGGLE_CHAT_HISTORY' })
     };
 
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+    
+    const isMobile = width <= 768;
+    const isMobileMenuOpen = width <= 1165;
+    console.info('isMobile ', isMobile)
+
     return (
         <div className={styles.container} role="main">
             {showAuthMessage ? (
@@ -572,7 +588,7 @@ const Chat = () => {
                                 <h1 className={styles.chatEmptyPromp}>Let's Begin</h1>
 
 
-                                <div className={styles.prompts}>
+                                <div className={clsx(styles.prompts, { [styles.promptsCenter] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen})}>
                                     <div className={styles.prompt}>
                                         <p>“How can I improve my client’s social media engagement?”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
@@ -581,11 +597,15 @@ const Chat = () => {
                                         <p>“Generate tweet ideas to promote a new TV series.”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
-                                    <div className={styles.prompt}>
+                                    <div className={clsx(styles.prompt, {
+                                        [styles.hideMobile] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen        
+                                        })}>
                                         <p>“Generate a logline for a romantic comedy set in a small town.”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
-                                    <div className={styles.prompt}>
+                                    <div className={clsx(styles.prompt, {
+                                        [styles.hideMobile] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen
+                                        })}>
                                         <p>“What are some ways to manage stress during high-stakes deals?”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>

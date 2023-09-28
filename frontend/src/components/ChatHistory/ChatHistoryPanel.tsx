@@ -8,6 +8,9 @@ import React from "react";
 import ChatHistoryList from "./ChatHistoryList";
 import { ChatHistoryLoadingState, historyDeleteAll } from "../../api";
 
+import Close from "../../assets/uta-close.svg";
+import UTA_OPTIONS from "../../assets/uta-options.svg";
+
 interface ChatHistoryPanelProps {
     newChat: () => void;
 
@@ -84,7 +87,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     }
 
     React.useEffect(() => {}, [appStateContext?.state.chatHistory, clearingError]);
-
+console.info('appStateContext ',appStateContext)
     return (
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
@@ -98,6 +101,16 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         className={`bg-transparent hover:bg-blue-700 text-off-white py-2 px-5 rounded-lg ${styles.bold}`}
                         onClick={toggleClearAllDialog}
                         >Clear History</button>
+                    
+                    <div className={styles.closeIcon}
+                            onClick={handleHistoryClick}
+                        >
+                            <img
+                                    src={Close}
+                                    // className={styles.chatIcon}
+                                    aria-hidden="true"
+                                />
+                        </div>
 
                 </Stack>
                 <Stack verticalAlign="start">
@@ -181,7 +194,18 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         </Stack>
                     </>}
                 </Stack>
+                
             </Stack>
+            <div className={styles.user}>
+                <div className={styles.userPhoto}>O</div>
+                <div className={styles.userName}>First Last</div>
+                <div className={styles.userMenu} onClick={handleHistoryClick}>
+                    <img src={UTA_OPTIONS}
+                          // className={styles.chatIcon}
+                        aria-hidden="true"
+                        /> 
+                </div>
+            </div>
             <Dialog
                 hidden={hideClearAllDialog}
                 onDismiss={clearing ? ()=>{} : onHideClearAllDialog}
