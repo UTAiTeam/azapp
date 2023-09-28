@@ -197,7 +197,7 @@ console.info('appStateContext ',appStateContext)
             </Stack>
             <div className={styles.user}>
                 <div className={styles.userPhoto}></div>
-                <div className={styles.userName}>First Last</div>
+                <div className={styles.userName}>{appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There'}</div>
                 <div className={styles.userMenu} onClick={handleHistoryClick}>
                     <img src={UTA_OPTIONS}
                         aria-hidden="true"

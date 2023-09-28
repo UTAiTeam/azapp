@@ -104,7 +104,7 @@ const Chat = () => {
         else {
             setShowAuthMessage(false);
         }
-        appStateContext?.dispatch({ type: 'SET_CURRENT_USER', payload: userInfoList });
+        appStateContext?.dispatch({ type: 'SET_CURRENT_USER', payload: userInfoList[0] });
     }
 
     const makeApiRequestWithoutCosmosDB = async (question: string, conversationId?: string) => {
