@@ -65,6 +65,8 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
             return { ...state, chatHistory: action.payload };
         case 'SET_COSMOSDB_STATUS':
             return { ...state, isCosmosDBAvailable: action.payload };
+        case 'SET_CURRENT_USER':
+            return { ...state, currentUser: action.payload };
         default:
             return state;
       }

@@ -197,11 +197,10 @@ console.info('appStateContext ',appStateContext)
                 
             </Stack>
             <div className={styles.user}>
-                <div className={styles.userPhoto}>O</div>
+                <div className={styles.userPhoto}></div>
                 <div className={styles.userName}>First Last</div>
                 <div className={styles.userMenu} onClick={handleHistoryClick}>
                     <img src={UTA_OPTIONS}
-                          // className={styles.chatIcon}
                         aria-hidden="true"
                         /> 
                 </div>

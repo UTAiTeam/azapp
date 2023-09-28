@@ -10,6 +10,7 @@ export interface AppState {
     chatHistory: Conversation[] | null;
     filteredChatHistory: Conversation[] | null;
     currentChat: Conversation | null;
+    currentUser: any;
 }
 
 export type Action =
@@ -24,6 +25,7 @@ export type Action =
     | { type: 'DELETE_CHAT_HISTORY'}  // API Call
     | { type: 'DELETE_CURRENT_CHAT_MESSAGES', payload: string }  // API Call
     | { type: 'FETCH_CHAT_HISTORY', payload: Conversation[] | null }  // API Call
+    | { type: 'SET_CURRENT_USER', payload: any | null }  // API Call
 
 const initialState: AppState = {
     isChatHistoryOpen: true,
@@ -34,7 +36,8 @@ const initialState: AppState = {
     isCosmosDBAvailable: {
         cosmosDB: false,
         status: CosmosDBStatus.NotConfigured,
-    }
+    },
+    currentUser: null,
 };
 
 export const AppStateContext = createContext<{
