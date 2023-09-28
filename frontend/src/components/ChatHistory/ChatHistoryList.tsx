@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { AppStateContext } from '../../state/AppProvider';
 import { ChatHistoryListItemGroups } from './ChatHistoryListItem';
 import { Conversation } from '../../api/models';
+// import { list } from '../../assets/mock';
 
 interface ChatHistoryListProps {}
 
@@ -60,6 +61,8 @@ const groupByMonth = (entries: Conversation[]) => {
 const ChatHistoryList: React.FC<ChatHistoryListProps> = () => {
     const appStateContext = useContext(AppStateContext);
     const chatHistory = appStateContext?.state.chatHistory;
+    console.info(chatHistory)
+
 
     React.useEffect(() => {}, [appStateContext?.state.chatHistory]);
     
