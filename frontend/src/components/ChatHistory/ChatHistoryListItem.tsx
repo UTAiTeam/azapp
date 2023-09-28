@@ -174,7 +174,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{
-                 backgroundColor: isSelected ? '#e6e6e6' : 'transparent',
+                 backgroundColor: isSelected ? '#232323' : 'transparent',
                  fontFamily: isSelected ? 'AktiveGrotesk-Bold' : 'AktiveGrotesk-Regular'
             }}
         >
@@ -194,6 +194,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
                                     onKeyDown={handleKeyPressEdit}
                                     // errorMessage={errorRename}
                                     disabled={errorRename ? true : false}
+                                    className={styles.titleField}
                                 />
                             </Stack.Item>
                             {editTitle && (<Stack.Item>
