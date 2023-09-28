@@ -92,7 +92,6 @@ console.info('appStateContext ',appStateContext)
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
                 <Stack horizontal className="mb-3">
-                    {/* <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat history</Text> */}
                     <button 
                         className={`bg-off-white text-off-black font-bold py-1 px-5 rounded-lg ${styles.bold}`}
                         onClick={props.newChat}
@@ -103,7 +102,7 @@ console.info('appStateContext ',appStateContext)
                         >Clear History</button>
                     
                     <div className={styles.closeIcon}
-                            onClick={handleHistoryClick}
+                            // onClick={handleHistoryClick}
                         >
                             <img
                                     src={Close}
@@ -197,11 +196,10 @@ console.info('appStateContext ',appStateContext)
                 
             </Stack>
             <div className={styles.user}>
-                <div className={styles.userPhoto}>O</div>
+                <div className={styles.userPhoto}></div>
                 <div className={styles.userName}>First Last</div>
                 <div className={styles.userMenu} onClick={handleHistoryClick}>
                     <img src={UTA_OPTIONS}
-                          // className={styles.chatIcon}
                         aria-hidden="true"
                         /> 
                 </div>
