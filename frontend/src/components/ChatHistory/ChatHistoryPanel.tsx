@@ -87,9 +87,9 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     }
 
     React.useEffect(() => {}, [appStateContext?.state.chatHistory, clearingError]);
-    let userName = appStateContext?.state?.currentUser && appStateContext?.state.currentUser.length >= 1 && appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There';
+    let userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.user_id : 'Hello There';
     useEffect(() => {
-        userName = appStateContext?.state?.currentUser && appStateContext?.state.currentUser.length >= 1 && appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There';
+        userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.user_id : 'Hello There';
     }, [appStateContext?.state?.currentUser])
 
     
