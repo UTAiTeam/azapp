@@ -2,7 +2,7 @@ import { CommandBarButton, ContextualMenu, DefaultButton, Dialog, DialogFooter, 
 import { useBoolean } from '@fluentui/react-hooks';
 
 import styles from "./ChatHistoryPanel.module.css"
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppStateContext } from "../../state/AppProvider";
 import React from "react";
 import ChatHistoryList from "./ChatHistoryList";
@@ -87,7 +87,14 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     }
 
     React.useEffect(() => {}, [appStateContext?.state.chatHistory, clearingError]);
-console.info('appStateContext ',appStateContext)
+    let userName = appStateContext?.state?.currentUser && appStateContext?.state.currentUser.length >= 1 && appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There';
+    useEffect(() => {
+        userName = appStateContext?.state?.currentUser && appStateContext?.state.currentUser.length >= 1 && appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There';
+    }, [appStateContext?.state?.currentUser])
+
+    
+
+    console.info('appStateContext ', appStateContext)
     return (
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
@@ -196,8 +203,11 @@ console.info('appStateContext ',appStateContext)
                 
             </Stack>
             <div className={styles.user}>
-                <div className={styles.userPhoto}></div>
-                <div className={styles.userName}>{appStateContext?.state.currentUser[0] ? appStateContext?.state.currentUser[0].user_id : 'Hello There'}</div>
+                <div className={styles.userDetails}>
+                    <div className={styles.userPhoto}></div>
+                    <div className={styles.userName}>{userName}</div>
+                </div>
+                
                 <div className={styles.userMenu} onClick={handleHistoryClick}>
                     <img src={UTA_OPTIONS}
                         aria-hidden="true"

@@ -125,6 +125,13 @@
     justify-content: space-between;
     align-items: center;
 }
+.userDetails{
+    display: flex;
+    align-items: center;
+}
+.userName{
+    margin-left: 15px;
+}
 .userPhoto{
     margin-left: 20px;
     background: #6B6A69;
