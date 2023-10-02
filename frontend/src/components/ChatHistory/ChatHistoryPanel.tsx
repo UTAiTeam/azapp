@@ -109,7 +109,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         >Clear History</button>
                     
                     <div className={styles.closeIcon}
-                            // onClick={handleHistoryClick}
+                            onClick={handleHistoryClick}
                         >
                             <img
                                     src={Close}

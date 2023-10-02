@@ -204,8 +204,8 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
                             </Stack.Item>
                             {editTitle && (<Stack.Item>
                                 <Stack aria-label='action button group' horizontal verticalAlign={'center'}>
-                                    <IconButton role='button' disabled={errorRename !== undefined} onKeyDown={e => e.key === " " || e.key === 'Enter' ? handleSaveEdit(e) : null} onClick={(e) => handleSaveEdit(e)} aria-label='confirm new title' iconProps={{iconName: 'CheckMark'}} styles={{ root: { color: 'green', marginLeft: '5px' } }} />
-                                    <IconButton role='button' disabled={errorRename !== undefined} onKeyDown={e => e.key === " " || e.key === 'Enter' ? cancelEditTitle() : null} onClick={() => cancelEditTitle()} aria-label='cancel edit title' iconProps={{iconName: 'Cancel'}} styles={{ root: { color: 'red', marginLeft: '5px' } }} />
+                                    <IconButton role='button' disabled={errorRename !== undefined} onKeyDown={e => e.key === " " || e.key === 'Enter' ? handleSaveEdit(e) : null} onClick={(e) => handleSaveEdit(e)} aria-label='confirm new title' iconProps={{iconName: 'CheckMark'}} styles={{ root: { color: '#fff', marginLeft: '5px' } }} />
+                                    <IconButton role='button' disabled={errorRename !== undefined} onKeyDown={e => e.key === " " || e.key === 'Enter' ? cancelEditTitle() : null} onClick={() => cancelEditTitle()} aria-label='cancel edit title' iconProps={{iconName: 'Cancel'}} styles={{ root: { color: 'white', marginLeft: '5px' } }} />
                                 </Stack>
                             </Stack.Item>)}
                         </Stack>
