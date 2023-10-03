@@ -550,6 +550,13 @@ const Chat = () => {
     const isMobile = width <= 768;
     const isMobileMenuOpen = width <= 1165;
     console.info('isMobile ', isMobile)
+    console.info('width ', width)
+
+    useEffect(() => {
+        if(isMobile){
+            appStateContext?.dispatch({ type: 'TOGGLE_CHAT_HISTORY' })
+        }
+    }, []);
 
     return (
         <div className={styles.container} role="main">
