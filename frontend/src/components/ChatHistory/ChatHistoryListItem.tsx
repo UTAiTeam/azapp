@@ -64,8 +64,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
         titleAriaId: 'labelId',
         subtitleAriaId: 'subTextId',
         isBlocking: true,
-        styles: { main: { maxWidth: 450 } },
-        // className:{styles.modalStyle}
+        styles: { main: { maxWidth: 450 }, root: { background: '#000'} }
     }
 
     if (!item) {

@@ -91,14 +91,10 @@
 
 @media only screen and (max-width: 740px) {
     .chatEmptyPromp{
-        font-size: 70px;
-    }
-    .chatIcon {
-        width: 225px;
-        height: 379px;
-        flex-shrink: 0;
+        font-size: 56px;
     }
 }
+
 
 .chatMessageStream {
     flex-grow: 1;
@@ -432,13 +428,25 @@ a {
         width: 28px;
     }
 }
+
+
 .prompt:hover{
    border: 1px solid #DBD8C7;
    .sendIcon{
         display: block;
    }
 }
+@media only screen and (max-width: 490px) {
+    .prompt{
+        width: 300px;
+    }
 
+}
+@media only screen and (max-width: 880px) and (min-width: 760px) {
+    .prompt{
+        width: 330px;
+    }
+}
 .hideMobile{
     display: none;
 }
