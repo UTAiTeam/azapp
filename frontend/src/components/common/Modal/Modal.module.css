@@ -1,0 +1,71 @@
+.modal {
+    position: relative;
+    max-width: 460px;
+    /* padding: 0 2rem; */
+    min-width: 340px;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
+    background: #141414
+  }
+
+  .modalCloseBtn {
+    font-size: .75em;
+    position: absolute;
+    top: .25em;
+    right: .25em;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  button {
+    padding: 0.5em;
+    font: inherit;
+    line-height: 1;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+.modal::backdrop {
+    background: gba(35, 35, 35, 0.60);
+    backdrop-filter: blur(2px);
+}
+.closeIcon{
+  display: block;
+  /* position: absolute;
+  top: .25em;
+  right: .25em; */
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  color: #DBD8C7;
+
+}
+
+.heading{
+  display: flex;
+  padding: 15px 20px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  background: #000;
+  color: #DBD8C7;
+  h3 {
+    font-family: 'AktiveGrotesk-Bold';
+    font-size: 18px;
+  }
+}
+.content{
+  padding: 20px 15px;
+  min-width: 200px;
+  color: #DBD8C7;
+  min-height: 115px;
+}
+.footer{
+  padding: 15px 20px;
+  min-width: 200px;
+  color: #DBD8C7;
+}

@@ -87,15 +87,15 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     }
 
     React.useEffect(() => {}, [appStateContext?.state.chatHistory, clearingError]);
-    let userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.[0]?.user_id : 'Hello There';
+    let userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.user_id : 'Hello There';
     useEffect(() => {
-    console.info('context effect has runn', appStateContext?.state?.currentUser)
-        userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.[0]?.user_id : 'Hello There';
+    console.info('context effect has run', appStateContext?.state?.currentUser)
+        userName = appStateContext?.state?.currentUser ? appStateContext?.state?.currentUser?.user_id : 'Hello There';
     }, [appStateContext?.state?.currentUser])
 
     
 
-    // console.info('appStateContext ', appStateContext)
+    console.info('appStateContext ', appStateContext)
     return (
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-evenly' verticalAlign='center' wrap aria-label="chat history header">
