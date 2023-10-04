@@ -41,6 +41,7 @@ import { QuestionInput } from "../../components/QuestionInput";
 import { ChatHistoryPanel } from "../../components/ChatHistory/ChatHistoryPanel";
 import { AppStateContext } from "../../state/AppProvider";
 import { useBoolean } from "@fluentui/react-hooks";
+import { Modal } from "../../components/common/Modal";
 
 const enum messageStatus {
     NotRunning = "Not Running",
@@ -63,6 +64,7 @@ const Chat = () => {
     const [hideErrorDialog, { toggle: toggleErrorDialog }] = useBoolean(true);
     const [errorMsg, setErrorMsg] = useState<ErrorMessage | null>()
     const [width, setWidth] = useState<number>(window.innerWidth);
+    const [ErrorModalToggle, setModalToggle] = useState<boolean>(false);
 
     const errorDialogContentProps = {
         type: DialogType.close,
@@ -85,12 +87,12 @@ const Chat = () => {
                 title: "Chat history is not enabled",
                 subtitle: subtitle
             })
-            toggleErrorDialog();
+            setModalToggle(true);
         }
     }, [appStateContext?.state.isCosmosDBAvailable]);
 
     const handleErrorDialogClose = () => {
-        toggleErrorDialog()
+        setModalToggle(false)
         setTimeout(() => {
             setErrorMsg(null)
         }, 500);
@@ -551,6 +553,13 @@ const Chat = () => {
     const isMobileMenuOpen = width <= 1165;
     console.info('isMobile ', isMobile)
     console.info('width ', width)
+    console.info('errorMsg ', errorMsg)
+    const handleOpenModal = () => {
+        // setModalOpen(true);
+      };
+    const handleClosenModal = () => {
+        // setModalOpen(false);
+      };
 
     useEffect(() => {
         if(isMobile){
@@ -597,7 +606,7 @@ const Chat = () => {
 
 
                                 <div className={clsx(styles.prompts, { [styles.promptsCenter] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen})}>
-                                    <div className={styles.prompt}>
+                                    <div className={styles.prompt} onClick={handleOpenModal}>
                                         <p>“How can I improve my client’s social media engagement?”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
@@ -737,6 +746,15 @@ const Chat = () => {
                                     modalProps={modalProps}
                                 >
                                 </Dialog>
+                                <Modal
+                                    isOpen={ErrorModalToggle}
+                                    hasCloseBtn
+                                    title={errorMsg?.title}
+                                    onClose={handleErrorDialogClose}
+                                    
+                                >
+                                    {errorMsg?.subtitle}
+                                </Modal>
                             </Stack>
                             <QuestionInput
                                 clearOnSend
