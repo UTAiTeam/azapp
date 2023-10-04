@@ -561,6 +561,11 @@ const Chat = () => {
         // setModalOpen(false);
       };
 
+
+    const makePrefilledPromptRequest = (question: string, id?: string) => {
+        appStateContext?.state.isCosmosDBAvailable?.cosmosDB ? makeApiRequestWithCosmosDB(question, id) : makeApiRequestWithoutCosmosDB(question, id)
+    }
+
     useEffect(() => {
         if(isMobile){
             appStateContext?.dispatch({ type: 'TOGGLE_CHAT_HISTORY' })
@@ -606,23 +611,23 @@ const Chat = () => {
 
 
                                 <div className={clsx(styles.prompts, { [styles.promptsCenter] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen})}>
-                                    <div className={styles.prompt} onClick={handleOpenModal}>
+                                    <div className={styles.prompt} onClick={() => makePrefilledPromptRequest('How can I improve my client’s social media engagement?')}>
                                         <p>“How can I improve my client’s social media engagement?”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
-                                    <div className={styles.prompt}>
+                                    <div className={styles.prompt} onClick={() => makePrefilledPromptRequest('Generate tweet ideas to promote a new TV series.')}>
                                         <p>“Generate tweet ideas to promote a new TV series.”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
                                     <div className={clsx(styles.prompt, {
                                         [styles.hideMobile] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen        
-                                        })}>
+                                        })} onClick={() => makePrefilledPromptRequest('Generate a logline for a romantic comedy set in a small town.')}>
                                         <p>“Generate a logline for a romantic comedy set in a small town.”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
                                     <div className={clsx(styles.prompt, {
                                         [styles.hideMobile] : isMobile || appStateContext?.state?.isChatHistoryOpen && isMobileMenuOpen
-                                        })}>
+                                        })} onClick={() => makePrefilledPromptRequest('What are some ways to manage stress during high-stakes deals?')}>
                                         <p>“What are some ways to manage stress during high-stakes deals?”</p>
                                         <div className="w-9"><img src={Send} className={styles.sendIcon} /></div>
                                     </div>
